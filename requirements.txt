@@ -63,7 +63,7 @@ python-editor==1.0.4
 python-jose==3.3.0
 python-multipart==0.0.19
 pytz==2024.2
-pywin32==308
+# pywin32==308
 PyYAML==6.0.2
 pyzmq==26.2.0
 rich==13.9.4
