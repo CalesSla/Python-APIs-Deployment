@@ -8,3 +8,6 @@ Group=sanjeev
 WorkingDirectory=/home/sanjeev/app/src/
 Environment="PATH=/home/sanjeev/app/venv/bin"
 ExecStart=/home/sanjeev/app/venv/bin/gunicorn -w 4 -k uvicorn.workers.UvicornWorker app.main:app --bind 0.0.0.0:8000
+
+[Install]
+WantedBy=multi-user.target
