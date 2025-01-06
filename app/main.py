@@ -4,6 +4,7 @@ from . import models
 from .database import engine
 from .routers import post, user, prediction, auth, vote
 from .config import settings
+import pydantic
 
 
 # models.Base.metadata.create_all(bind=engine)
@@ -29,5 +30,6 @@ app.include_router(vote.router)
 
 @app.get("/")
 def root():
+    print(pydantic.__version__)
     return {"message": "Hello World"}
 

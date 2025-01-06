@@ -1,7 +1,7 @@
 from pydantic import BaseModel, RootModel, EmailStr
 from datetime import datetime
-from typing import List, Optional
-from pydantic.types import conint
+from typing import List, Optional, Annotated
+from pydantic import conint
 
 import warnings
 warnings.filterwarnings("ignore", category=UserWarning)
@@ -77,7 +77,7 @@ class TokenData(BaseModel):
 
 class Vote(BaseModel):
     post_id: int
-    dir: conint(le=1)
+    dir: Annotated[int, conint(le=1)]
 
 
 
