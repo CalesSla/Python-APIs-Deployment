@@ -91,3 +91,13 @@ def test_delete_other_user_post(authorized_client, test_user, test_posts):
     assert res.status_code == 403
 
 
+def test_update_post(authorized_client, test_user, test_posts):
+    data = {"title": "updated_title",
+            "content": "updated content",
+            "id": test_posts[0].id}
+    res = authorized_client.put(f"/posts/{test_posts[0].id}", json=data)
+    updated_post = schemas.Post(**res.json())
+    assert res.status_code == 200
+    assert updated_post.title == data["title"]
+    assert updated_post.content == data["content"]
+
