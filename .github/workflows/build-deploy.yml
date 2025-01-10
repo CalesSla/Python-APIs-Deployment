@@ -101,6 +101,6 @@ jobs:
           username: ${{secrets.PROD_USERNAME}}
           password: ${{secrets.PROD_PASSWORD}}
           script:
-            cd app/src
+            cd "app/src"
             git pull
             echo 0794050771aA | sudo -S systemctl restart api
