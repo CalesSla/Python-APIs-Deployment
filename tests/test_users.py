@@ -40,8 +40,8 @@ def test_login_user(client, test_user):
                              ("wrongemail@gmail.com", "password123", 403),
                              ("sanjeev@gmail.com", "wrongpassword", 403),
                              ("wrongemail@gmail.com", "wrongpassword", 403),
-                             (None, "password123", 422),
-                             ("sanjeev@gmail.com", None, 422)
+                             (None, "password123", 403),
+                             ("sanjeev@gmail.com", None, 403)
                          ])
 def test_incorrect_login(test_user, client, email, password, status_code):
     res = client.post("/login", data={"username": email,
